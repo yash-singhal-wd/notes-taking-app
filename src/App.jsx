@@ -1,5 +1,6 @@
 import React from "react";
 
+import SideNavbar from "./comps/SideNavbar/SideNavbar";
 // make 3 main screens - collapsible sidenavbar, a normal navbar and main pages of notes
 // SideNavbar, Navbar, MainScreen
 // localstorage feature - useEffect - for persistence
@@ -18,5 +19,5 @@ import React from "react";
 //
 
 export default function App() {
-  return <div>Hello Notes app here</div>;
+  return <SideNavbar />
 }

@@ -1,0 +1,88 @@
+:root {
+  --sidebar-width-open: 250px;
+  --sidebar-width-closed: 70px;
+  --sidebar-bg-color: #2c3e50;
+  --sidebar-text-color: #ecf0f1;
+  --transition-speed: 0.3s;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-width-open);
+  background-color: var(--sidebar-bg-color);
+  color: var(--sidebar-text-color);
+  transition: width var(--transition-speed) ease-in-out;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  z-index: 100;
+}
+
+.sidebar.closed {
+  width: var(--sidebar-width-closed);
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+/* Navigation */
+.sidebarNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarNav li a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--sidebar-text-color);
+  text-decoration: none;
+  transition: background-color var(--transition-speed);
+}
+
+.sidebarNav li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Toggle button (fixed, outside sidebar) */
+.toggleBtn {
+  position: fixed;
+  top: 20px;
+  left: calc(var(--sidebar-width-closed) - 15px);
+  width: 28px;
+  height: 28px;
+  background-color: var(--sidebar-bg-color);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: var(--sidebar-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 200;
+  transition: left var(--transition-speed);
+}
+
+/* Move toggle button when sidebar is open */
+.sidebar.open ~ .toggleBtn {
+  left: calc(var(--sidebar-width-open) - 15px);
+}
+
+/* Main Content */
+.mainContent {
+  margin-left: var(--sidebar-width-open);
+  padding: 20px;
+  transition: margin-left var(--transition-speed) ease-in-out;
+}
+
+.mainContent.sidebarClosed {
+  margin-left: var(--sidebar-width-closed);
+}
