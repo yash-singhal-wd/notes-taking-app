@@ -11,14 +11,13 @@ const SideNavbar = () => {
     <>
       <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
         <div className={styles.sidebarHeader}>
-          {isOpen && <h2>Notely</h2>}
+          {isOpen && <h2>Notes</h2>}
         </div>
 
         <nav className={styles.sidebarNav}>
           <ul>
-            <li><a href="#dashboard">Dashboard</a></li>
-            <li><a href="#notes">Notes</a></li>
-            <li><a href="#settings">Settings</a></li>
+            <li><a href="#dashboard">{isOpen? 'Dashboard' : undefined}</a></li>
+            <li ><a href="#notes">{isOpen? 'Notes' : undefined}</a></li>
           </ul>
         </nav>
       </aside>
@@ -30,11 +29,6 @@ const SideNavbar = () => {
       >
         {isOpen ? <X size={18} /> : <Menu size={18} />}
       </button>
-
-      <main className={`${styles.mainContent} ${isOpen ? styles.sidebarOpen : styles.sidebarClosed}`}>
-        <h1>Welcome to Notely</h1>
-        <p>The main content shifts automatically when the sidebar is collapsed or expanded.</p>
-      </main>
     </>
   );
 };
