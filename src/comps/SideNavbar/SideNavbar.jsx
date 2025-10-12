@@ -11,13 +11,13 @@ const SideNavbar = () => {
     <>
       <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
         <div className={styles.sidebarHeader}>
-          {isOpen && <h2>Notes</h2>}
+          {isOpen && <h2>Notely</h2>}
         </div>
 
         <nav className={styles.sidebarNav}>
           <ul>
             <li><a href="#dashboard">{isOpen? 'Dashboard' : undefined}</a></li>
-            <li ><a href="#notes">{isOpen? 'Notes' : undefined}</a></li>
+            <li ><a href="#notes">{isOpen? 'Pages' : undefined}</a></li>
           </ul>
         </nav>
       </aside>
@@ -27,7 +27,7 @@ const SideNavbar = () => {
         onClick={toggleSidebar}
         aria-label="Toggle Sidebar"
       >
-        {isOpen ? <X size={18} /> : <Menu size={18} />}
+        {isOpen ? <X size={25} /> : <Menu size={25} />}
       </button>
     </>
   );
