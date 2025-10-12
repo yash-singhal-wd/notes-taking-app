@@ -16,8 +16,8 @@ const SideNavbar = () => {
 
         <nav className={styles.sidebarNav}>
           <ul>
-            <li><a href="#dashboard">{isOpen? 'Dashboard' : undefined}</a></li>
-            <li ><a href="#notes">{isOpen? 'Pages' : undefined}</a></li>
+            <li><a>{isOpen? 'Dashboard' : undefined}</a></li>
+            <li ><a>{isOpen? 'Pages' : undefined}</a></li>
           </ul>
         </nav>
       </aside>
