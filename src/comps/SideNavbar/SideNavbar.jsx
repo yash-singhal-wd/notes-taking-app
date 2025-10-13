@@ -5,11 +5,7 @@ import SidemenuOption from "../SideMenuOptions/SidemenuOption";
 import sidemenuOptions from "../SideMenuOptions/data";
 import styles from "./SideNavbar.module.css";
 
-const SideNavbar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const toggleSidebar = () => setIsOpen((prev) => !prev);
-
+const SideNavbar = ({isOpen, toggleSidebar}) => {
   return (
     <>
       <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>

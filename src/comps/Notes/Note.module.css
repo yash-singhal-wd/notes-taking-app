@@ -1,0 +1,15 @@
+:root {
+  --sidebar-width-open: 250px;
+  --sidebar-width-closed: 70px;
+  --transition-speed: 0.3s;
+}
+
+.mainContent {
+  margin-left: var(--sidebar-width-open);
+  padding: 20px;
+  transition: margin-left var(--transition-speed) ease-in-out;
+}
+
+.mainContent.sidebarClosed {
+  margin-left: var(--sidebar-width-closed);
+}

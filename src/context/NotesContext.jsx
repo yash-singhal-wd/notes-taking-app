@@ -4,10 +4,12 @@ import { createContext, useReducer } from "react";
 
 //initial state
 const initialState = {
+    isOpen: true,
     notes: []
 }
 //create context
 const NotesContext = createContext({
+    isOpen: true,
     notes: []
 });
 
@@ -21,6 +23,7 @@ export function NotesContextProvider({children}){
     const [ notesState, dispatch] = useReducer(reducer, initialState);
 
     const notesCtx = {
+        isOpen: notesState.isOpen,
         notes: notesState.notes
     };
 
