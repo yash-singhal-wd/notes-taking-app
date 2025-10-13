@@ -4,11 +4,11 @@ import { createContext, useReducer } from "react";
 
 //initial state
 const initialState = {
-    items: []
+    notes: []
 }
 //create context
 const NotesContext = createContext({
-    items: []
+    notes: []
 });
 
 //main reducer function
@@ -21,7 +21,7 @@ export function NotesContextProvider({children}){
     const [ notesState, dispatch] = useReducer(reducer, initialState);
 
     const notesCtx = {
-        items: notesState.items
+        notes: notesState.notes
     };
 
     return (
