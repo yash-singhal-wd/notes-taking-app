@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Menu, X } from "lucide-react"; // npm install lucide-react
 
 import SidemenuOption from "../SideMenuOptions/SidemenuOption";
 import sidemenuOptions from "../SideMenuOptions/data";
 import styles from "./SideNavbar.module.css";
 
-const SideNavbar = ({isOpen, toggleSidebar}) => {
+import NotesContext from "../../context/NotesContext";
+
+const SideNavbar = () => {
+
+  const {isOpen, toggleSidebar} = useContext(NotesContext);
+
   return (
     <>
       <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>

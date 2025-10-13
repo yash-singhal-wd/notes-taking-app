@@ -22,13 +22,10 @@ import Note from "./comps/Notes/Note";
 //
 
 export default function App() {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const toggleSidebar = () => setIsOpen((prev) => !prev);
   return (
     <NotesContextProvider >
-      <SideNavbar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <Note isOpen={isOpen}/>
+      <SideNavbar />
+      <Note/>
     </NotesContextProvider>
 
   )

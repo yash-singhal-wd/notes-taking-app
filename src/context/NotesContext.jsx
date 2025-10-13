@@ -7,14 +7,18 @@ const initialState = {
     isOpen: true,
     notes: []
 }
-//create context
+//create context - for intellisense
 const NotesContext = createContext({
     isOpen: true,
-    notes: []
+    notes: [],
+    toggleSidebar: () => {},
 });
 
 //main reducer function
 function reducer(state, action) {
+    if(action.type == "TOGGLE_SIDEBAR"){
+        return {...state, isOpen: !state.isOpen};
+    }
     return state;
 }
 
@@ -22,9 +26,17 @@ function reducer(state, action) {
 export function NotesContextProvider({children}){
     const [ notesState, dispatch] = useReducer(reducer, initialState);
 
+    function toggleSidebar(){
+        dispatch({
+            type: "TOGGLE_SIDEBAR",
+            payload: {}
+        })
+    }
+
     const notesCtx = {
         isOpen: notesState.isOpen,
-        notes: notesState.notes
+        notes: notesState.notes,
+        toggleSidebar
     };
 
     return (
