@@ -1,5 +1,6 @@
 import React from "react";
 
+import { NotesContextProvider } from "./context/NotesContext";
 import SideNavbar from "./comps/SideNavbar/SideNavbar";
 // make 3 main screens - collapsible sidenavbar, a normal navbar and main pages of notes
 // SideNavbar, Navbar, MainScreen
@@ -19,5 +20,11 @@ import SideNavbar from "./comps/SideNavbar/SideNavbar";
 //
 
 export default function App() {
-  return <SideNavbar />
+
+  return (
+    <NotesContextProvider>
+      <SideNavbar />
+    </NotesContextProvider>
+
+  )
 }
