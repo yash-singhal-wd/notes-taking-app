@@ -5,7 +5,7 @@ export default function SidemenuOption({children}) {
     return (
         <nav className={styles.sidebarNav}>
             <ul>
-            <li ><a>{children}</a></li>
+            <li ><div onClick={() => console.log("Clicked here")}>{children}</div></li>
             </ul>
         </nav>
     );

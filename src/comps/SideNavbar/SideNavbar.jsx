@@ -17,7 +17,12 @@ const SideNavbar = () => {
           {isOpen && <h2>Notely</h2>}
         </div>
         {isOpen && <button>Add note</button>}
-        {isOpen && notes.map((item, i) => <SidemenuOption key={i}>{item.title} </SidemenuOption>)}
+        {isOpen && 
+          notes.map((item, i) => 
+            <SidemenuOption key={i}>
+              {item.title} 
+            </SidemenuOption>
+        )}
       </aside>
 
       <button

@@ -5,12 +5,15 @@ import { createContext, useReducer } from "react";
 //initial state
 const initialState = {
     isOpen: true,
-    notes: [{ title: "Note_1", content: ""}]
+    notes: [{ title: "Note_1", content: ""}],
+    currentNote: {}
 }
 //create context - for intellisense
 const NotesContext = createContext({
     isOpen: true,
     notes: [],
+    currentNote: {},
+    updateCurrentNote: () => {},
     toggleSidebar: () => {},
 });
 
@@ -18,6 +21,9 @@ const NotesContext = createContext({
 function reducer(state, action) {
     if(action.type == "TOGGLE_SIDEBAR"){
         return {...state, isOpen: !state.isOpen};
+    }
+    if(action.type == "UPDATE_NOTE"){
+        return {...state, currentNote: {title: payload.title, content: payload.content} };
     }
     return state;
 }
@@ -30,6 +36,13 @@ export function NotesContextProvider({children}){
         dispatch({
             type: "TOGGLE_SIDEBAR",
             payload: {}
+        })
+    }
+
+    function updateCurrentNote( title, content){
+        dispatch({
+            type: "UPDATE_NOTE",
+            payload: {title, content}
         })
     }
 
