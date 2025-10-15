@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Menu, X } from "lucide-react"; // npm install lucide-react
 
 import SidemenuOption from "../SideMenuOptions/SidemenuOption";
