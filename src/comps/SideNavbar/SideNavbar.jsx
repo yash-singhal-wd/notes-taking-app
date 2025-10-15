@@ -2,14 +2,13 @@ import React, { useContext } from "react";
 import { Menu, X } from "lucide-react"; // npm install lucide-react
 
 import SidemenuOption from "../SideMenuOptions/SidemenuOption";
-import sidemenuOptions from "../SideMenuOptions/data";
 import styles from "./SideNavbar.module.css";
 
 import NotesContext from "../../context/NotesContext";
 
 const SideNavbar = () => {
 
-  const {isOpen, toggleSidebar} = useContext(NotesContext);
+  const {isOpen, toggleSidebar, notes} = useContext(NotesContext);
 
   return (
     <>
@@ -18,7 +17,7 @@ const SideNavbar = () => {
           {isOpen && <h2>Notely</h2>}
         </div>
         {isOpen && <button>Add note</button>}
-        {isOpen && sidemenuOptions.map((item, i) => <SidemenuOption key={i}>{item} </SidemenuOption>)}
+        {isOpen && notes.map((item, i) => <SidemenuOption key={i}>{item.title} </SidemenuOption>)}
       </aside>
 
       <button

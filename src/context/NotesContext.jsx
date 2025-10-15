@@ -5,7 +5,7 @@ import { createContext, useReducer } from "react";
 //initial state
 const initialState = {
     isOpen: true,
-    notes: []
+    notes: [{ title: "Note_1", content: ""}]
 }
 //create context - for intellisense
 const NotesContext = createContext({
