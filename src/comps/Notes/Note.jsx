@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import styles from "./Note.module.css";
 
+import Button from '../../comps/Button/Button';
 import NotesContext from "../../context/NotesContext";
-
 const Note = () => {
     const { isOpen, currentNote } = useContext(NotesContext);
 
@@ -17,7 +17,7 @@ const Note = () => {
             {
                 currentNote?.title && 
                 <>
-                    <h2>{currentNote.title}</h2>
+                    <h1>{currentNote.title}</h1> <Button>Edit</Button>
                     <p>{currentNote.content}</p>
                 </>
             }
