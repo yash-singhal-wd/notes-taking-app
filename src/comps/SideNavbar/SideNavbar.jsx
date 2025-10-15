@@ -8,7 +8,7 @@ import NotesContext from "../../context/NotesContext";
 
 const SideNavbar = () => {
 
-  const {isOpen, toggleSidebar, notes} = useContext(NotesContext);
+  const {isOpen, toggleSidebar, notes, updateCurrentNote} = useContext(NotesContext);
 
   return (
     <>
@@ -19,7 +19,7 @@ const SideNavbar = () => {
         {isOpen && <button>Add note</button>}
         {isOpen && 
           notes.map((item, i) => 
-            <SidemenuOption key={i}>
+            <SidemenuOption key={i} onClick={() => updateCurrentNote(item.title, item.content)}>
               {item.title} 
             </SidemenuOption>
         )}

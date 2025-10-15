@@ -23,7 +23,8 @@ function reducer(state, action) {
         return {...state, isOpen: !state.isOpen};
     }
     if(action.type == "UPDATE_NOTE"){
-        return {...state, currentNote: {title: payload.title, content: payload.content} };
+        const {title, content} = action.payload
+        return {...state, currentNote: {title, content} };
     }
     return state;
 }
@@ -49,7 +50,9 @@ export function NotesContextProvider({children}){
     const notesCtx = {
         isOpen: notesState.isOpen,
         notes: notesState.notes,
-        toggleSidebar
+        currentNote: notesState.currentNote,
+        toggleSidebar,
+        updateCurrentNote
     };
 
     return (

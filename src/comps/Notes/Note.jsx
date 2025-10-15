@@ -4,13 +4,23 @@ import styles from "./Note.module.css";
 import NotesContext from "../../context/NotesContext";
 
 const Note = () => {
-    const { isOpen } = useContext(NotesContext);
+    const { isOpen, currentNote } = useContext(NotesContext);
 
     return (
         <main className={`${styles.mainContent} ${isOpen ? styles.sidebarOpen : styles.sidebarClosed}`}>
-        <h1>Notes App</h1>
-        <p>The main content resizes automatically based on sidebar state.</p>
-        {/* You can render notes here */}
+            { !currentNote?.title && 
+                <>
+                    <h1>Notes App</h1>
+                    <p>Click on the Notes name to view it.</p>
+                </>
+            }
+            {
+                currentNote?.title && 
+                <>
+                    <h2>{currentNote.title}</h2>
+                    <p>{currentNote.content}</p>
+                </>
+            }
         </main>
     );
 };

@@ -1,11 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
 import styles from "./SidemenuOption.module.css";
+import NotesContext from "../../context/NotesContext";
 
-export default function SidemenuOption({children}) {
+export default function SidemenuOption({children, onClick}) {
     return (
         <nav className={styles.sidebarNav}>
             <ul>
-            <li ><div onClick={() => console.log("Clicked here")}>{children}</div></li>
+            <li ><div onClick={onClick}>{children}</div></li>
             </ul>
         </nav>
     );
