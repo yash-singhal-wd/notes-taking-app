@@ -10,6 +10,7 @@
   transition: margin-left var(--transition-speed) ease-in-out;
 }
 
+
 .mainContent.sidebarClosed {
   margin-left: var(--sidebar-width-closed);
 }
