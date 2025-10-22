@@ -3,6 +3,7 @@ import styles from "./Note.module.css";
 
 import NotesContext from "../../context/NotesContext";
 import NoteTitle from "./NoteTitle";
+import NoteContent from "./NoteContent";
 
 const Note = () => {
     const { isOpen, currentNote, updateCurrentNoteTitle } = useContext(NotesContext);
@@ -35,8 +36,8 @@ const Note = () => {
                 />
             }
 
-            {currentNote.content && 
-                <>{currentNote.content}</>
+            {1 && 
+                <NoteContent/>
             }
         </main>
     );
