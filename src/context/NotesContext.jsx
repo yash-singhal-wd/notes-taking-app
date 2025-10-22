@@ -28,10 +28,22 @@ function reducer(state, action) {
         const currentNoteArr = state.notes.filter( note => note.id == id);
         return {...state, currentNote: currentNoteArr[0]};
     }
-    if(action.type == "UPDATE_TITLE"){
-        const { title, content } = action.payload;
-        return {...state, currentNote: {title, content}}
+
+    if (action.type === "UPDATE_TITLE") {
+        const { id, newTitle } = action.payload;
+
+        const updatedNotes = state.notes.map(note =>
+            note.id === id ? { ...note, title: newTitle } : note
+        );
+
+        const updatedCurrentNote =
+            state.currentNote?.id === id
+            ? { ...state.currentNote, title: newTitle }
+            : state.currentNote;
+
+        return { ...state, notes: updatedNotes, currentNote: updatedCurrentNote };
     }
+
     return state;
 }
 
@@ -53,10 +65,10 @@ export function NotesContextProvider({children}){
         });
     }
 
-    function updateCurrentNoteTitle( title, content ){
+    function updateCurrentNoteTitle(id, newTitle){
         dispatch({
             type: "UPDATE_TITLE",
-            payload: {title, content}
+            payload: {id, newTitle}
         });
     }
 

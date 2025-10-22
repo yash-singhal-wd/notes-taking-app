@@ -12,7 +12,7 @@ const Note = () => {
     const handleEditClick = () => {
         if(isEditing){
             //changes required here 
-            updateCurrentNoteTitle(editedTitle, currentNote.content);
+            updateCurrentNoteTitle(currentNote.id, editedTitle);
             setIsEditing(false);
         } else {
             setIsEditing(true);
