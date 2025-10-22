@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import styles from "./Note.module.css";
 
-import Button from '../../comps/Button/Button';
 import NotesContext from "../../context/NotesContext";
+import NoteTitle from "./NoteTitle";
 
 const Note = () => {
     const { isOpen, currentNote, updateCurrentNoteTitle } = useContext(NotesContext);
@@ -29,25 +29,10 @@ const Note = () => {
             }
 
             { currentNote?.title && 
-                <>
-                    <div className={styles.noteHeader}>
-                        {isEditing ? (
-                            <input
-                                type="text"
-                                value={editedTitle}
-                                onChange={(e) => setEditedTitle(e.target.value)}
-                                className={styles.editInput}
-                                autoFocus
-                            />
-                        ) : (
-                            <h1>{currentNote.title}</h1>
-                        )}
-                        <div className={styles.buttonContainer}>
-                            <Button onClick={handleEditClick}>{isEditing? 'Save': 'Edit' }</Button>
-                        </div>
-                    </div>
-                    <p>{currentNote.content}</p>
-                </>
+                <NoteTitle isEditing={isEditing} editedTitle={editedTitle} 
+                    setEditedTitle={setEditedTitle} currentNote={currentNote} 
+                    handleEditClick={handleEditClick} 
+                />
             }
 
             {currentNote.content && 
