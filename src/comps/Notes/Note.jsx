@@ -11,7 +11,6 @@ const Note = () => {
 
     const handleEditClick = () => {
         if(isEditing){
-            //changes required here 
             updateCurrentNoteTitle(currentNote.id, editedTitle);
             setIsEditing(false);
         } else {
@@ -49,6 +48,10 @@ const Note = () => {
                     </div>
                     <p>{currentNote.content}</p>
                 </>
+            }
+
+            {currentNote.content && 
+                <>{currentNote.content}</>
             }
         </main>
     );
