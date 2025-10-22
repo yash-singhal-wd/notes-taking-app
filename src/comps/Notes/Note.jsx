@@ -5,13 +5,19 @@ import Button from '../../comps/Button/Button';
 import NotesContext from "../../context/NotesContext";
 
 const Note = () => {
-    const { isOpen, currentNote } = useContext(NotesContext);
+    const { isOpen, currentNote, updateCurrentNoteTitle } = useContext(NotesContext);
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(currentNote?.title || "");
 
     const handleEditClick = () => {
-        setIsEditing(true);
-        setEditedTitle(currentNote.title);
+        if(isEditing){
+            //changes required here 
+            updateCurrentNoteTitle(editedTitle, currentNote.content);
+            setIsEditing(false);
+        } else {
+            setIsEditing(true);
+            setEditedTitle(currentNote.title);
+        }
     };
 
     return (

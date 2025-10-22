@@ -27,7 +27,7 @@ function reducer(state, action) {
         const {title, content} = action.payload
         return {...state, currentNote: {title, content} };
     }
-    if(action.type == "UDATE_TITLE"){
+    if(action.type == "UPDATE_TITLE"){
         const { title, content } = action.payload;
         return {...state, currentNote: {title, content}}
     }
