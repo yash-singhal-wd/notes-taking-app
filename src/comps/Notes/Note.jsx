@@ -4,8 +4,6 @@ import styles from "./Note.module.css";
 import Button from '../../comps/Button/Button';
 import NotesContext from "../../context/NotesContext";
 
-// make save and Edit button work
-
 const Note = () => {
     const { isOpen, currentNote } = useContext(NotesContext);
     const [isEditing, setIsEditing] = useState(false);
