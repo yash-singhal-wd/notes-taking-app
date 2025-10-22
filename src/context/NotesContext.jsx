@@ -5,7 +5,7 @@ import { createContext, useReducer } from "react";
 //initial state
 const initialState = {
     isOpen: true,
-    notes: [{ title: "Note_1", content: ""}],
+    notes: [{ id:1, title: "Note_1", content: ""}],
     currentNote: {}
 }
 //create context - for intellisense
@@ -13,7 +13,7 @@ const NotesContext = createContext({
     isOpen: true,
     notes: [],
     currentNote: {},
-    updateCurrentNote: () => {},
+    selectCurrentNote: () => {},
     toggleSidebar: () => {},
     updateCurrentNoteTitle: () => {},
 });
@@ -24,8 +24,9 @@ function reducer(state, action) {
         return {...state, isOpen: !state.isOpen};
     }
     if(action.type == "UPDATE_CURRENT_NOTE"){
-        const {title, content} = action.payload
-        return {...state, currentNote: {title, content} };
+        const {id} = action.payload;
+        const currentNoteArr = state.notes.filter( note => note.id == id);
+        return {...state, currentNote: currentNoteArr[0]};
     }
     if(action.type == "UPDATE_TITLE"){
         const { title, content } = action.payload;
@@ -45,10 +46,10 @@ export function NotesContextProvider({children}){
         });
     }
 
-    function updateCurrentNote( title, content){
+    function selectCurrentNote(id){
         dispatch({
             type: "UPDATE_CURRENT_NOTE",
-            payload: {title, content}
+            payload: {id}
         });
     }
 
@@ -64,7 +65,7 @@ export function NotesContextProvider({children}){
         notes: notesState.notes,
         currentNote: notesState.currentNote,
         toggleSidebar,
-        updateCurrentNote,
+        selectCurrentNote,
         updateCurrentNoteTitle
     };
 
