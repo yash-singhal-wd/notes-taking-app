@@ -17,9 +17,8 @@ const Note = () => {
                     <p>Click on the Notes name to view it.</p>
                 </>
             }
-
             { currentNote?.title && <NoteTitle/> } 
-            <NoteContent/>
+            { currentNote && <NoteContent/>}
         </main>
     );
 };
