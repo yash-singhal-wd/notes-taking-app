@@ -37,6 +37,7 @@ const Note = () => {
             }
 
             {1 && 
+            
                 <NoteContent/>
             }
         </main>
