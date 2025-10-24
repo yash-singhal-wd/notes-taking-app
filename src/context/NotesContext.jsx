@@ -16,6 +16,7 @@ const NotesContext = createContext({
     selectCurrentNote: () => {},
     toggleSidebar: () => {},
     updateCurrentNoteTitle: () => {},
+    updateCurrentNoteContent: () => {},
 });
 
 //main reducer function
@@ -29,7 +30,7 @@ function reducer(state, action) {
         return {...state, currentNote: currentNoteArr[0]};
     }
 
-    if (action.type === "UPDATE_TITLE") {
+    if (action.type == "UPDATE_TITLE") {
         const { id, newTitle } = action.payload;
 
         const updatedNotes = state.notes.map(note =>
@@ -43,6 +44,12 @@ function reducer(state, action) {
 
         return { ...state, notes: updatedNotes, currentNote: updatedCurrentNote };
     }
+
+    // if(action.type == "UPDATE_CONTENT"){
+    //     const { id, newContent } = action.payload;
+
+    //     return state;
+    // }
 
     return state;
 }
@@ -72,6 +79,12 @@ export function NotesContextProvider({children}){
         });
     }
 
+    function updateCurrentNoteContent(id, newContent){
+        dispatch({
+            type: "UPDATE_CONTENT",
+            payload: {id, newContent}
+        });
+    }
     const notesCtx = {
         isOpen: notesState.isOpen,
         notes: notesState.notes,

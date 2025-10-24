@@ -1,10 +1,10 @@
 import React,{useState, useContext} from 'react';
 import Button from '../../comps/Button/Button';
-import styles from "./Note.module.css";
 import NotesContext from '../../context/NotesContext';
+import styles from "./Note.module.css";
 
 export default function NoteContent(){
-     const { currentNote, updateCurrentNoteTitle } = useContext(NotesContext);
+     const { currentNote } = useContext(NotesContext);
 
     const [isEditing, setIsEditing] = useState(false);
     const [editedContent, setEditedContent] = useState(currentNote?.content || "");
@@ -30,12 +30,12 @@ export default function NoteContent(){
                     //     className={styles.editInput}
                     //     autoFocus
                     // />
-                    <textarea id="myNotes" rows="10" cols="50" placeholder="Start typing..."></textarea>
+                    <textarea id="myNotes" rows="10" cols="50" placeholder="Start typing for notes..."></textarea>
                 ) : (
-                    <textarea>{currentNote.content}</textarea>
+                    <textarea placeholder="Start typing for notes...">{currentNote.content}</textarea>
                 )}
                 <div className={styles.buttonContainer}>
-                    <Button onClick={handleEditClick}>{isEditing? 'Save': 'Edit' }</Button>
+                    {/* <Button onClick={} >{isEditing? 'Save': 'Edit' }</Button> */}
                 </div>
             </div>
             <p>{currentNote.content}</p>
