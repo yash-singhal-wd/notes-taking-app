@@ -7,17 +7,17 @@ export default function NoteContent(){
      const { currentNote, updateCurrentNoteTitle } = useContext(NotesContext);
 
     const [isEditing, setIsEditing] = useState(false);
-    const [editedTitle, setEditedTitle] = useState(currentNote?.title || "");
+    const [editedContent, setEditedContent] = useState(currentNote?.content || "");
 
-    const handleEditClick = () => {
-        if(isEditing){
-            updateCurrentNoteTitle(currentNote.id, editedTitle);
-            setIsEditing(false);
-        } else {
-            setIsEditing(true);
-            setEditedTitle(currentNote.title);
-        }
-    };
+    // const handleEditClick = () => {
+    //     if(isEditing){
+    //         updateCurrentNoteTitle(currentNote.id, editedTitle);
+    //         setIsEditing(false);
+    //     } else {
+    //         setIsEditing(true);
+    //         setEditedTitle(currentNote.title);
+    //     }
+    // };
 
     return (
         <>
