@@ -6,19 +6,8 @@ import NoteTitle from "./NoteTitle";
 import NoteContent from "./NoteContent";
 
 const Note = () => {
-    const { isOpen, currentNote, updateCurrentNoteTitle } = useContext(NotesContext);
-    const [isEditing, setIsEditing] = useState(false);
-    const [editedTitle, setEditedTitle] = useState(currentNote?.title || "");
-
-    const handleEditClick = () => {
-        if(isEditing){
-            updateCurrentNoteTitle(currentNote.id, editedTitle);
-            setIsEditing(false);
-        } else {
-            setIsEditing(true);
-            setEditedTitle(currentNote.title);
-        }
-    };
+    const { isOpen, currentNote } = useContext(NotesContext);
+    
 
     return (
         <main className={`${styles.mainContent} ${isOpen ? styles.sidebarOpen : styles.sidebarClosed}`}>
@@ -29,17 +18,8 @@ const Note = () => {
                 </>
             }
 
-            { currentNote?.title && 
-                <NoteTitle isEditing={isEditing} editedTitle={editedTitle} 
-                    setEditedTitle={setEditedTitle} currentNote={currentNote} 
-                    handleEditClick={handleEditClick} 
-                />
-            }
-
-            {1 && 
-            
-                <NoteContent/>
-            }
+            { currentNote?.title && <NoteTitle/> } 
+            <NoteContent/>
         </main>
     );
 };
