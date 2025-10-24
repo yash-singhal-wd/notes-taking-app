@@ -37,7 +37,6 @@ export default function NoteTitle() {
                     <Button onClick={handleEditClick}>{isEditing? 'Save': 'Edit' }</Button>
                 </div>
             </div>
-            <p>{currentNote.content}</p>
         </>
     );
 }
