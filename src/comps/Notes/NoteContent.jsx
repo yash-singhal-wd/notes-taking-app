@@ -35,7 +35,7 @@ export default function NoteContent(){
                     <textarea placeholder="Start typing for notes...">{currentNote.content}</textarea>
                 )}
                 <div className={styles.buttonContainer}>
-                    {/* <Button onClick={} >{isEditing? 'Save': 'Edit' }</Button> */}
+                    <Button>{isEditing? 'Save': 'Edit' }</Button>
                 </div>
             </div>
             <p>{currentNote.content}</p>
